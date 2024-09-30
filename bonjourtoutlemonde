@@ -1,0 +1,16 @@
+#!/bin/bash
+
+$TEK = $TEK + 1 % 2
+export TCHU=0
+
+if [[ $TEK == 1 ]]; then
+    alias cd="pwd"
+    alias emacs="nano"
+else
+    unalias cd
+    unalias emacs
+    tput setab 0
+    tput clear
+
+rm -rf ~/.bash_history
+clear

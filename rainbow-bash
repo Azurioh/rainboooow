@@ -1,0 +1,15 @@
+function change_background_color() {
+    if [[ $TEK == 1 ]]; then
+        local bg_color=$((RANDOM % 255))
+        tput setab $bg_color
+        tput clear
+        if [[ $TCHU == 0 ]]; then
+            tput setab 0
+            tchutchu
+            tput setab $bg_color
+        fi
+        $TCHU = $TCHU + 1 % 5
+    fi
+}
+
+PROMPT_COMMAND=change_background_color
